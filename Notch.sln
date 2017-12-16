@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notch.Infrastructure", "Not
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notch.Bootstrap", "Notch.Bootstrap\Notch.Bootstrap.csproj", "{2A2900DA-AB37-4B40-8A41-6E27BB7064B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notch.ViewModel", "Notch.ViewModel\Notch.ViewModel.csproj", "{962AA65B-78B7-4B9F-93CA-4DBA3EF67B0C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notch.Data.Dapper", "Notch.Data.Dapper\Notch.Data.Dapper.csproj", "{36CC66E4-7642-4061-AB8D-73F5E7B44F60}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notch.Data.EntityFramework", "Notch.Data.EntityFramework\Notch.Data.EntityFramework.csproj", "{8765C650-5866-4914-8FFE-8640C2DB0395}"
@@ -37,10 +35,6 @@ Global
 		{2A2900DA-AB37-4B40-8A41-6E27BB7064B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A2900DA-AB37-4B40-8A41-6E27BB7064B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A2900DA-AB37-4B40-8A41-6E27BB7064B8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{962AA65B-78B7-4B9F-93CA-4DBA3EF67B0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{962AA65B-78B7-4B9F-93CA-4DBA3EF67B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{962AA65B-78B7-4B9F-93CA-4DBA3EF67B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{962AA65B-78B7-4B9F-93CA-4DBA3EF67B0C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{36CC66E4-7642-4061-AB8D-73F5E7B44F60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{36CC66E4-7642-4061-AB8D-73F5E7B44F60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36CC66E4-7642-4061-AB8D-73F5E7B44F60}.Release|Any CPU.ActiveCfg = Release|Any CPU
