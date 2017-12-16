@@ -200,6 +200,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TrackController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -208,6 +209,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ProducerVM.cs" />
+    <Compile Include="ViewModels\TrackVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -267,6 +270,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <None Include="Views\Track\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -287,6 +291,10 @@
     <ProjectReference Include="..\Notch.Business\Notch.Business.csproj">
       <Project>{28114ebb-44f3-43a2-8fe6-e4cfe90dfa4f}</Project>
       <Name>Notch.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Notch.Domain\Notch.Domain.csproj">
+      <Project>{5ac764fa-46c8-49b1-b021-60f1e541f290}</Project>
+      <Name>Notch.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\Notch.Infrastructure\Notch.Infrastructure.csproj">
       <Project>{1d5c9738-e26e-458e-a6cc-f31c193c7b54}</Project>

@@ -1,0 +1,20 @@
+﻿@model System.Collections.Generic.IEnumerable<Notch.Domain.Track>
+
+@{
+    ViewBag.Title = "Tracks";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<h2>Tracks</h2>
+
+@foreach (var track in Model)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">@track.Id</div>
+            <div class="col-md-3">@track.Name</div>
+            <div class="col-md-3">@track.Length</div>
+            <div class="col-md-3">@track.BPM</div>
+        </div>
+    </div>   
+}

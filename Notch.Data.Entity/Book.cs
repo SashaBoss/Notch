@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Notch.Business
+namespace Notch.Data.Entity
 {
-    public class Class1
+    class Book
     {
     }
 }

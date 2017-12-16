@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[Track]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1,1), 
+    [Name] NVARCHAR(256) NOT NULL, 
+    [Length] INT NOT NULL, 
+    [BPM] TINYINT NOT NULL
+)

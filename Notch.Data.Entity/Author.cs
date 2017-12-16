@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace Notch.Data.EntityFramework
+using Dapper.Contrib.Extensions;
+namespace Notch.Data.Entity
 {
-    public class Class1
+    [Table]
+    public class Author
     {
     }
 }

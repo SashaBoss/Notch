@@ -14,14 +14,12 @@
     {
         private readonly ILogger _logger = LoggerSelector.Instance;
         private readonly GenericPrincipal _prinipical;
-        private const string ConnectionKey = "ConnKey";
-        private const string EncryptKey = "EncryptKey";
+        private const string ConnectionKey = "NotchConnection";
 
         public DefaultContext(GenericPrincipal prinipical, HttpContextBase requestContext)
             : base()
         {
             var connectionString = ConfigurationManager.ConnectionStrings[ConnectionKey].ToString();
-            var encryptKey = ConfigurationManager.AppSettings[EncryptKey];
             this._prinipical = prinipical;
             this.Factory = UnitySetup.CreateFactory(this);
             this.DataContext = this.Factory.GetService<IDataContext>(connectionString);
@@ -38,7 +36,7 @@
         {
             get
             {
-                if (this._prinipical == null || this._prinipical.Identity == null)
+                if (this._prinipical?.Identity == null)
                 {
                     return string.Empty;
                 }

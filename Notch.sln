@@ -13,9 +13,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notch.Data.Dapper", "Notch.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notch.Data.EntityFramework", "Notch.Data.EntityFramework\Notch.Data.EntityFramework.csproj", "{8765C650-5866-4914-8FFE-8640C2DB0395}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notch.Data.Entity", "Notch.Data.Entity\Notch.Data.Entity.csproj", "{50F86B22-C31D-4E62-9B8D-908360B0D739}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notch.Business", "Notch.Business\Notch.Business.csproj", "{28114EBB-44F3-43A2-8FE6-E4CFE90DFA4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notch.Domain", "Notch.Domain\Notch.Domain.csproj", "{5AC764FA-46C8-49B1-B021-60F1E541F290}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Notch.Database", "Notch.Database\Notch.Database.sqlproj", "{11098DB7-6127-4B28-9BF1-09A5BA75190E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notch.Data.Dapper.Entity", "Notch.Data.Dapper.Entity\Notch.Data.Dapper.Entity.csproj", "{7D585257-40FD-4F33-B657-68323E93E343}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notch.Data.EntityFramework.Entity", "Notch.Data.EntityFramework.Entity\Notch.Data.EntityFramework.Entity.csproj", "{441E96C5-E835-4F61-A6C2-8A596E91C2C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,14 +49,28 @@ Global
 		{8765C650-5866-4914-8FFE-8640C2DB0395}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8765C650-5866-4914-8FFE-8640C2DB0395}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8765C650-5866-4914-8FFE-8640C2DB0395}.Release|Any CPU.Build.0 = Release|Any CPU
-		{50F86B22-C31D-4E62-9B8D-908360B0D739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{50F86B22-C31D-4E62-9B8D-908360B0D739}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{50F86B22-C31D-4E62-9B8D-908360B0D739}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{50F86B22-C31D-4E62-9B8D-908360B0D739}.Release|Any CPU.Build.0 = Release|Any CPU
 		{28114EBB-44F3-43A2-8FE6-E4CFE90DFA4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{28114EBB-44F3-43A2-8FE6-E4CFE90DFA4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28114EBB-44F3-43A2-8FE6-E4CFE90DFA4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28114EBB-44F3-43A2-8FE6-E4CFE90DFA4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AC764FA-46C8-49B1-B021-60F1E541F290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AC764FA-46C8-49B1-B021-60F1E541F290}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AC764FA-46C8-49B1-B021-60F1E541F290}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AC764FA-46C8-49B1-B021-60F1E541F290}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11098DB7-6127-4B28-9BF1-09A5BA75190E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11098DB7-6127-4B28-9BF1-09A5BA75190E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11098DB7-6127-4B28-9BF1-09A5BA75190E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{11098DB7-6127-4B28-9BF1-09A5BA75190E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11098DB7-6127-4B28-9BF1-09A5BA75190E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11098DB7-6127-4B28-9BF1-09A5BA75190E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7D585257-40FD-4F33-B657-68323E93E343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D585257-40FD-4F33-B657-68323E93E343}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D585257-40FD-4F33-B657-68323E93E343}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D585257-40FD-4F33-B657-68323E93E343}.Release|Any CPU.Build.0 = Release|Any CPU
+		{441E96C5-E835-4F61-A6C2-8A596E91C2C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{441E96C5-E835-4F61-A6C2-8A596E91C2C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{441E96C5-E835-4F61-A6C2-8A596E91C2C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{441E96C5-E835-4F61-A6C2-8A596E91C2C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

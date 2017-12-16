@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NotchModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ProducerEFEntity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="TrackEFEntitys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ProducerEFEntityId" Type="int" Nullable="false" />
+          <Property Name="TrackEFEntityId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TrackEFEntity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Length" Type="int" Nullable="false" />
+          <Property Name="BPM" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TrackEFEntitys_ProducerEFEntity">
+          <End Role="ProducerEFEntity" Type="Self.ProducerEFEntity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TrackEFEntitys" Type="Self.TrackEFEntitys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProducerEFEntity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TrackEFEntitys">
+              <PropertyRef Name="ProducerEFEntityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrackEFEntitys_TrackEFEntity">
+          <End Role="TrackEFEntity" Type="Self.TrackEFEntity" Multiplicity="1" />
+          <End Role="TrackEFEntitys" Type="Self.TrackEFEntitys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrackEFEntity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TrackEFEntitys">
+              <PropertyRef Name="TrackEFEntityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NotchModelStoreContainer">
+          <EntitySet Name="ProducerEFEntity" EntityType="Self.ProducerEFEntity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrackEFEntitys" EntityType="Self.TrackEFEntitys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrackEFEntity" EntityType="Self.TrackEFEntity" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TrackEFEntitys_ProducerEFEntity" Association="Self.FK_TrackEFEntitys_ProducerEFEntity">
+            <End Role="ProducerEFEntity" EntitySet="ProducerEFEntity" />
+            <End Role="TrackEFEntitys" EntitySet="TrackEFEntitys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrackEFEntitys_TrackEFEntity" Association="Self.FK_TrackEFEntitys_TrackEFEntity">
+            <End Role="TrackEFEntity" EntitySet="TrackEFEntity" />
+            <End Role="TrackEFEntitys" EntitySet="TrackEFEntitys" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NotchModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ProducerEFEntity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TrackEFEntitys" Relationship="Self.FK_TrackEFEntitys_ProducerEFEntity" FromRole="ProducerEFEntity" ToRole="TrackEFEntitys" />
+        </EntityType>
+        <EntityType Name="TrackEFEntitys">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ProducerEFEntityId" Type="Int32" Nullable="false" />
+          <Property Name="TrackEFEntityId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ProducerEFEntity" Relationship="Self.FK_TrackEFEntitys_ProducerEFEntity" FromRole="TrackEFEntitys" ToRole="ProducerEFEntity" />
+          <NavigationProperty Name="TrackEFEntity" Relationship="Self.FK_TrackEFEntitys_TrackEFEntity" FromRole="TrackEFEntitys" ToRole="TrackEFEntity" />
+        </EntityType>
+        <EntityType Name="TrackEFEntity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Length" Type="Int32" Nullable="false" />
+          <Property Name="BPM" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="TrackEFEntitys" Relationship="Self.FK_TrackEFEntitys_TrackEFEntity" FromRole="TrackEFEntity" ToRole="TrackEFEntitys" />
+        </EntityType>
+        <Association Name="FK_TrackEFEntitys_ProducerEFEntity">
+          <End Role="ProducerEFEntity" Type="Self.ProducerEFEntity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TrackEFEntitys" Type="Self.TrackEFEntitys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProducerEFEntity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TrackEFEntitys">
+              <PropertyRef Name="ProducerEFEntityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrackEFEntitys_TrackEFEntity">
+          <End Role="TrackEFEntity" Type="Self.TrackEFEntity" Multiplicity="1" />
+          <End Role="TrackEFEntitys" Type="Self.TrackEFEntitys" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TrackEFEntity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TrackEFEntitys">
+              <PropertyRef Name="TrackEFEntityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NotchConnectio" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ProducerEFEntity" EntityType="Self.ProducerEFEntity" />
+          <EntitySet Name="TrackEFEntitys" EntityType="Self.TrackEFEntitys" />
+          <EntitySet Name="TrackEFEntity" EntityType="Self.TrackEFEntity" />
+          <AssociationSet Name="FK_TrackEFEntitys_ProducerEFEntity" Association="Self.FK_TrackEFEntitys_ProducerEFEntity">
+            <End Role="ProducerEFEntity" EntitySet="ProducerEFEntity" />
+            <End Role="TrackEFEntitys" EntitySet="TrackEFEntitys" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrackEFEntitys_TrackEFEntity" Association="Self.FK_TrackEFEntitys_TrackEFEntity">
+            <End Role="TrackEFEntity" EntitySet="TrackEFEntity" />
+            <End Role="TrackEFEntitys" EntitySet="TrackEFEntitys" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NotchModelStoreContainer" CdmEntityContainer="NotchConnectio">
+          <EntitySetMapping Name="ProducerEFEntity">
+            <EntityTypeMapping TypeName="NotchModel.ProducerEFEntity">
+              <MappingFragment StoreEntitySet="ProducerEFEntity">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrackEFEntitys">
+            <EntityTypeMapping TypeName="NotchModel.TrackEFEntitys">
+              <MappingFragment StoreEntitySet="TrackEFEntitys">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProducerEFEntityId" ColumnName="ProducerEFEntityId" />
+                <ScalarProperty Name="TrackEFEntityId" ColumnName="TrackEFEntityId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrackEFEntity">
+            <EntityTypeMapping TypeName="NotchModel.TrackEFEntity">
+              <MappingFragment StoreEntitySet="TrackEFEntity">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="BPM" ColumnName="BPM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

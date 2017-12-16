@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8bb791138b40453fab955a6c5f3f922f" Name="Diagram1">
+        <EntityTypeShape EntityType="NotchModel.ProducerEfEntityEFModel" Width="1.875" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotchModel.ProducerEfEntityTrackEFModel" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NotchModel.TrackEFModel" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="NotchModel.FK_ProducerEfEntityTrack_ProducerEfEntity" ManuallyRouted="false" />
+        <AssociationConnector Association="NotchModel.FK_ProducerEfEntityTrack_Track" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
