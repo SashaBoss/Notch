@@ -7,5 +7,7 @@
     public interface ITrackDM : IDisposable
     {
         IEnumerable<Track> GetTracks();
+        long AddTrack(Track track);
+        void DeleteTrack(int trackId);
     }
 }

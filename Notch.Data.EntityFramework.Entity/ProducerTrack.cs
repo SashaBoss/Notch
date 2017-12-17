@@ -12,13 +12,13 @@ namespace Notch.Data.EntityFramework.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class TrackEFEntitys
+    public partial class ProducerTrack
     {
         public int Id { get; set; }
-        public int ProducerEFEntityId { get; set; }
-        public int TrackEFEntityId { get; set; }
+        public int ProducerId { get; set; }
+        public int TrackId { get; set; }
     
-        public virtual ProducerEFEntity ProducerEFEntity { get; set; }
-        public virtual TrackEFEntity TrackEFEntity { get; set; }
+        public virtual Producer Producer { get; set; }
+        public virtual Track Track { get; set; }
     }
 }

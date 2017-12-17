@@ -1,9 +1,8 @@
-﻿using Notch.Infrastructure.Data;
-
-namespace Notch.Business
+﻿namespace Notch.Business
 {
     using Notch.Infrastructure.Request;
-
+    using Notch.Data.Dapper.Entity;
+    using Notch.Infrastructure.Data;
     using System.Collections.Generic;
     using Notch.Domain;
     using Notch.Infrastructure.Business;
@@ -21,6 +20,25 @@ namespace Notch.Business
                 var tracks = repo.GetAll();
 
                 return this.EntService.ConvertTo(tracks, default(IEnumerable<Track>));
+            }
+        }
+
+        public long AddTrack(Track track)
+        {
+            using (var repo = this.Factory.GetService<ITrackRepository>(this.DataContext))
+            {
+                var trackEm = this.EntService.ConvertTo<Track, TrackEM>(track);
+                var trackId = repo.Insert(trackEm);
+
+                return trackId;
+            }
+        }
+
+        public void DeleteTrack(int trackId)
+        {
+            using (var repo = this.Factory.GetService<ITrackRepository>(this.DataContext))
+            {
+                repo.Delete(trackId);
             }
         }
     }

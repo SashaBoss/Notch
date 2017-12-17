@@ -98,6 +98,14 @@
       <Project>{36cc66e4-7642-4061-ab8d-73f5e7b44f60}</Project>
       <Name>Notch.Data.Dapper</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Notch.Data.EntityFramework.Entity\Notch.Data.EntityFramework.Entity.csproj">
+      <Project>{441e96c5-e835-4f61-a6c2-8a596e91c2c0}</Project>
+      <Name>Notch.Data.EntityFramework.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Notch.Data.EntityFramework\Notch.Data.EntityFramework.csproj">
+      <Project>{8765c650-5866-4914-8ffe-8640c2db0395}</Project>
+      <Name>Notch.Data.EntityFramework</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Notch.Infrastructure\Notch.Infrastructure.csproj">
       <Project>{1d5c9738-e26e-458e-a6cc-f31c193c7b54}</Project>
       <Name>Notch.Infrastructure</Name>

@@ -1,10 +1,10 @@
-﻿namespace Notch.Infrastructure.Data
+﻿namespace Notch.Infrastructure.Data.Common
 {
     using System;
     using System.Collections.Generic;
     using System.ServiceModel;
 
-    public interface IRepository<TEntity, Key> : IDisposable
+    public interface IRepository<TEntity, in TKey> : IDisposable
         where TEntity : class
     {
         IDataContext CurrentContext { get; }
@@ -13,7 +13,7 @@
         IEnumerable<TEntity> GetAll();
 
         [TransactionFlow(TransactionFlowOption.Allowed)]
-        TEntity Get(Key id);
+        TEntity Get(TKey id);
 
         [TransactionFlow(TransactionFlowOption.Allowed)]
         long Insert(TEntity entity);
@@ -22,7 +22,7 @@
         void Update(TEntity entity);
 
         [TransactionFlow(TransactionFlowOption.Allowed)]
-        void Delete(Key id);
+        void Delete(TKey id);
 
         IEnumerable<TEntity> SearchQuery(string sql, Dictionary<string, object> parameters, out int totalCount, int pageNumber, int pageSize, string sortColumn, string sortOrder);
 

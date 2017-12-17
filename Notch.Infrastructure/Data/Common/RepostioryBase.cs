@@ -1,4 +1,6 @@
-﻿namespace Notch.Infrastructure.Data
+﻿using Notch.Infrastructure.Data.Common;
+
+namespace Notch.Infrastructure.Data
 {
     using System;
     using System.Collections.Generic;

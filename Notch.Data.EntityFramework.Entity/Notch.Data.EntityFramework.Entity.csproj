@@ -66,27 +66,32 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Notch.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TrackEFEntity.cs">
+    <Compile Include="Producer.cs">
       <DependentUpon>Notch.tt</DependentUpon>
     </Compile>
-    <Compile Include="TrackEFEntitys.cs">
+    <Compile Include="ProducerTrack.cs">
+      <DependentUpon>Notch.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Track.cs">
       <DependentUpon>Notch.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <EntityDeploy Include="Notch.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Notch.Designer.cs</LastGenOutput>
     </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
     <None Include="Notch.edmx.diagram">
       <DependentUpon>Notch.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Notch.Context.tt">

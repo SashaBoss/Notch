@@ -4,23 +4,23 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="NotchModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="ProducerEFEntity">
+      <Schema Namespace="NotchContext.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Producer">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="256" />
         </EntityType>
-        <EntityType Name="TrackEFEntitys">
+        <EntityType Name="ProducerTrack">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="ProducerEFEntityId" Type="int" Nullable="false" />
-          <Property Name="TrackEFEntityId" Type="int" Nullable="false" />
+          <Property Name="ProducerId" Type="int" Nullable="false" />
+          <Property Name="TrackId" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="TrackEFEntity">
+        <EntityType Name="Track">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -29,69 +29,69 @@
           <Property Name="Length" Type="int" Nullable="false" />
           <Property Name="BPM" Type="tinyint" Nullable="false" />
         </EntityType>
-        <Association Name="FK_TrackEFEntitys_ProducerEFEntity">
-          <End Role="ProducerEFEntity" Type="Self.ProducerEFEntity" Multiplicity="1">
+        <Association Name="FK_ProducerTrack_Producer">
+          <End Role="Producer" Type="Self.Producer" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="TrackEFEntitys" Type="Self.TrackEFEntitys" Multiplicity="*" />
+          <End Role="ProducerTrack" Type="Self.ProducerTrack" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ProducerEFEntity">
+            <Principal Role="Producer">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TrackEFEntitys">
-              <PropertyRef Name="ProducerEFEntityId" />
+            <Dependent Role="ProducerTrack">
+              <PropertyRef Name="ProducerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TrackEFEntitys_TrackEFEntity">
-          <End Role="TrackEFEntity" Type="Self.TrackEFEntity" Multiplicity="1" />
-          <End Role="TrackEFEntitys" Type="Self.TrackEFEntitys" Multiplicity="*" />
+        <Association Name="FK_ProducerTrack_Track">
+          <End Role="Track" Type="Self.Track" Multiplicity="1" />
+          <End Role="ProducerTrack" Type="Self.ProducerTrack" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TrackEFEntity">
+            <Principal Role="Track">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TrackEFEntitys">
-              <PropertyRef Name="TrackEFEntityId" />
+            <Dependent Role="ProducerTrack">
+              <PropertyRef Name="TrackId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="NotchModelStoreContainer">
-          <EntitySet Name="ProducerEFEntity" EntityType="Self.ProducerEFEntity" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TrackEFEntitys" EntityType="Self.TrackEFEntitys" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TrackEFEntity" EntityType="Self.TrackEFEntity" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_TrackEFEntitys_ProducerEFEntity" Association="Self.FK_TrackEFEntitys_ProducerEFEntity">
-            <End Role="ProducerEFEntity" EntitySet="ProducerEFEntity" />
-            <End Role="TrackEFEntitys" EntitySet="TrackEFEntitys" />
+        <EntityContainer Name="NotchContextStoreContainer">
+          <EntitySet Name="Producer" EntityType="Self.Producer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProducerTrack" EntityType="Self.ProducerTrack" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Track" EntityType="Self.Track" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ProducerTrack_Producer" Association="Self.FK_ProducerTrack_Producer">
+            <End Role="Producer" EntitySet="Producer" />
+            <End Role="ProducerTrack" EntitySet="ProducerTrack" />
           </AssociationSet>
-          <AssociationSet Name="FK_TrackEFEntitys_TrackEFEntity" Association="Self.FK_TrackEFEntitys_TrackEFEntity">
-            <End Role="TrackEFEntity" EntitySet="TrackEFEntity" />
-            <End Role="TrackEFEntitys" EntitySet="TrackEFEntitys" />
+          <AssociationSet Name="FK_ProducerTrack_Track" Association="Self.FK_ProducerTrack_Track">
+            <End Role="Track" EntitySet="Track" />
+            <End Role="ProducerTrack" EntitySet="ProducerTrack" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="NotchModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="ProducerEFEntity">
+      <Schema Namespace="NotchContext" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Producer">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="TrackEFEntitys" Relationship="Self.FK_TrackEFEntitys_ProducerEFEntity" FromRole="ProducerEFEntity" ToRole="TrackEFEntitys" />
+          <NavigationProperty Name="ProducerTrack" Relationship="Self.FK_ProducerTrack_Producer" FromRole="Producer" ToRole="ProducerTrack" />
         </EntityType>
-        <EntityType Name="TrackEFEntitys">
+        <EntityType Name="ProducerTrack">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="ProducerEFEntityId" Type="Int32" Nullable="false" />
-          <Property Name="TrackEFEntityId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="ProducerEFEntity" Relationship="Self.FK_TrackEFEntitys_ProducerEFEntity" FromRole="TrackEFEntitys" ToRole="ProducerEFEntity" />
-          <NavigationProperty Name="TrackEFEntity" Relationship="Self.FK_TrackEFEntitys_TrackEFEntity" FromRole="TrackEFEntitys" ToRole="TrackEFEntity" />
+          <Property Name="ProducerId" Type="Int32" Nullable="false" />
+          <Property Name="TrackId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Producer" Relationship="Self.FK_ProducerTrack_Producer" FromRole="ProducerTrack" ToRole="Producer" />
+          <NavigationProperty Name="Track" Relationship="Self.FK_ProducerTrack_Track" FromRole="ProducerTrack" ToRole="Track" />
         </EntityType>
-        <EntityType Name="TrackEFEntity">
+        <EntityType Name="Track">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -99,45 +99,45 @@
           <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Length" Type="Int32" Nullable="false" />
           <Property Name="BPM" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="TrackEFEntitys" Relationship="Self.FK_TrackEFEntitys_TrackEFEntity" FromRole="TrackEFEntity" ToRole="TrackEFEntitys" />
+          <NavigationProperty Name="ProducerTrack" Relationship="Self.FK_ProducerTrack_Track" FromRole="Track" ToRole="ProducerTrack" />
         </EntityType>
-        <Association Name="FK_TrackEFEntitys_ProducerEFEntity">
-          <End Role="ProducerEFEntity" Type="Self.ProducerEFEntity" Multiplicity="1">
+        <Association Name="FK_ProducerTrack_Producer">
+          <End Role="Producer" Type="Self.Producer" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="TrackEFEntitys" Type="Self.TrackEFEntitys" Multiplicity="*" />
+          <End Role="ProducerTrack" Type="Self.ProducerTrack" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ProducerEFEntity">
+            <Principal Role="Producer">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TrackEFEntitys">
-              <PropertyRef Name="ProducerEFEntityId" />
+            <Dependent Role="ProducerTrack">
+              <PropertyRef Name="ProducerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TrackEFEntitys_TrackEFEntity">
-          <End Role="TrackEFEntity" Type="Self.TrackEFEntity" Multiplicity="1" />
-          <End Role="TrackEFEntitys" Type="Self.TrackEFEntitys" Multiplicity="*" />
+        <Association Name="FK_ProducerTrack_Track">
+          <End Role="Track" Type="Self.Track" Multiplicity="1" />
+          <End Role="ProducerTrack" Type="Self.ProducerTrack" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TrackEFEntity">
+            <Principal Role="Track">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="TrackEFEntitys">
-              <PropertyRef Name="TrackEFEntityId" />
+            <Dependent Role="ProducerTrack">
+              <PropertyRef Name="TrackId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="NotchConnectio" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ProducerEFEntity" EntityType="Self.ProducerEFEntity" />
-          <EntitySet Name="TrackEFEntitys" EntityType="Self.TrackEFEntitys" />
-          <EntitySet Name="TrackEFEntity" EntityType="Self.TrackEFEntity" />
-          <AssociationSet Name="FK_TrackEFEntitys_ProducerEFEntity" Association="Self.FK_TrackEFEntitys_ProducerEFEntity">
-            <End Role="ProducerEFEntity" EntitySet="ProducerEFEntity" />
-            <End Role="TrackEFEntitys" EntitySet="TrackEFEntitys" />
+        <EntityContainer Name="NotchConnection" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Producer" EntityType="Self.Producer" />
+          <EntitySet Name="ProducerTrack" EntityType="Self.ProducerTrack" />
+          <EntitySet Name="Track" EntityType="Self.Track" />
+          <AssociationSet Name="FK_ProducerTrack_Producer" Association="Self.FK_ProducerTrack_Producer">
+            <End Role="Producer" EntitySet="Producer" />
+            <End Role="ProducerTrack" EntitySet="ProducerTrack" />
           </AssociationSet>
-          <AssociationSet Name="FK_TrackEFEntitys_TrackEFEntity" Association="Self.FK_TrackEFEntitys_TrackEFEntity">
-            <End Role="TrackEFEntity" EntitySet="TrackEFEntity" />
-            <End Role="TrackEFEntitys" EntitySet="TrackEFEntitys" />
+          <AssociationSet Name="FK_ProducerTrack_Track" Association="Self.FK_ProducerTrack_Track">
+            <End Role="Track" EntitySet="Track" />
+            <End Role="ProducerTrack" EntitySet="ProducerTrack" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -145,27 +145,27 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="NotchModelStoreContainer" CdmEntityContainer="NotchConnectio">
-          <EntitySetMapping Name="ProducerEFEntity">
-            <EntityTypeMapping TypeName="NotchModel.ProducerEFEntity">
-              <MappingFragment StoreEntitySet="ProducerEFEntity">
+        <EntityContainerMapping StorageEntityContainer="NotchContextStoreContainer" CdmEntityContainer="NotchConnection">
+          <EntitySetMapping Name="Producer">
+            <EntityTypeMapping TypeName="NotchContext.Producer">
+              <MappingFragment StoreEntitySet="Producer">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TrackEFEntitys">
-            <EntityTypeMapping TypeName="NotchModel.TrackEFEntitys">
-              <MappingFragment StoreEntitySet="TrackEFEntitys">
+          <EntitySetMapping Name="ProducerTrack">
+            <EntityTypeMapping TypeName="NotchContext.ProducerTrack">
+              <MappingFragment StoreEntitySet="ProducerTrack">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ProducerEFEntityId" ColumnName="ProducerEFEntityId" />
-                <ScalarProperty Name="TrackEFEntityId" ColumnName="TrackEFEntityId" />
+                <ScalarProperty Name="ProducerId" ColumnName="ProducerId" />
+                <ScalarProperty Name="TrackId" ColumnName="TrackId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TrackEFEntity">
-            <EntityTypeMapping TypeName="NotchModel.TrackEFEntity">
-              <MappingFragment StoreEntitySet="TrackEFEntity">
+          <EntitySetMapping Name="Track">
+            <EntityTypeMapping TypeName="NotchContext.Track">
+              <MappingFragment StoreEntitySet="Track">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Length" ColumnName="Length" />

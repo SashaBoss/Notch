@@ -25,8 +25,8 @@ namespace Notch.Data.EntityFramework.Entity
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<ProducerEFEntity> ProducerEFEntity { get; set; }
-        public virtual DbSet<TrackEFEntitys> TrackEFEntitys { get; set; }
-        public virtual DbSet<TrackEFEntity> TrackEFEntity { get; set; }
+        public virtual DbSet<Producer> Producer { get; set; }
+        public virtual DbSet<ProducerTrack> ProducerTrack { get; set; }
+        public virtual DbSet<Track> Track { get; set; }
     }
 }

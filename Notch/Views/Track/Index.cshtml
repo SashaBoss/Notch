@@ -5,16 +5,47 @@
     Layout = "../Shared/_Layout.cshtml";
 }
 
-<h2>Tracks</h2>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <button class="btn btn-primary" data-toggle="collapse" data-target="#createForm">Add Track</button>
+    </div>
+    @{ Html.RenderPartial("_CreateEditTrack");}
+</div>
 
-@foreach (var track in Model)
-{
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">@track.Id</div>
-            <div class="col-md-3">@track.Name</div>
-            <div class="col-md-3">@track.Length</div>
-            <div class="col-md-3">@track.BPM</div>
-        </div>
-    </div>   
+<table class="table table-bordered table-striped table-responsive">
+    <thead>
+        <tr>
+            <td class="text-center">Id</td>
+            <td class="text-center">Name</td>
+            <td class="text-center">Length</td>
+            <td class="text-center">BPM</td>
+            <td class="text-center">Actions</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var track in Model)
+        {
+            var deleteModal = $"#deleteModal{track.Id}";
+            <tr>
+                <td class="col-md-3 text-center">@track.Id</td>
+                <td class="col-md-3 text-center">@track.Name</td>
+                <td class="col-md-3 text-center">@track.Length</td>
+                <td class="col-md-3 text-center">@track.BPM</td>
+                <td class="col-md-3 text-center">
+                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="@deleteModal">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{ Html.RenderPartial("_DeleteModals", Model);}
+<script src="~/Scripts/track.js"></script>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            Track.init();
+        });
+    </script>
 }

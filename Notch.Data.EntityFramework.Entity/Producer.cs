@@ -12,20 +12,18 @@ namespace Notch.Data.EntityFramework.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class TrackEFEntity
+    public partial class Producer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TrackEFEntity()
+        public Producer()
         {
-            this.TrackEFEntitys = new HashSet<TrackEFEntitys>();
+            this.ProducerTrack = new HashSet<ProducerTrack>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Length { get; set; }
-        public byte BPM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TrackEFEntitys> TrackEFEntitys { get; set; }
+        public virtual ICollection<ProducerTrack> ProducerTrack { get; set; }
     }
 }
