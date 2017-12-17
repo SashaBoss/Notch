@@ -41,5 +41,13 @@
                 repo.Delete(trackId);
             }
         }
+
+        public void Update(Track track)
+        {
+            using (var repo = this.Factory.GetService<ITrackRepository>(this.DataContext))
+            {
+                repo.Update(this.EntService.ConvertTo<Track, TrackEM>(track));
+            }
+        }
     }
 }

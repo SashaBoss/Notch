@@ -1,4 +1,6 @@
-﻿namespace Notch.Controllers
+﻿using Notch.ViewModels;
+
+namespace Notch.Controllers
 {
     using System.Web.Mvc;
     using Notch.Domain;
@@ -16,10 +18,17 @@
             }
         }
 
-        public ActionResult AddTrack(Track track)
+        public ActionResult AddOrUpdate(Track track)
         {
             using (var trackDm = this.Factory.GetService<ITrackDM>(this.RequestContext))
             {
+                if (track.Id != 0)
+                {
+                    trackDm.Update(track);
+
+                    return RedirectToAction("Index");
+                }
+
                 trackDm.AddTrack(track);
 
                 return RedirectToAction("Index");

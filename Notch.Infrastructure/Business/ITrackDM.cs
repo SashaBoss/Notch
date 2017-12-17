@@ -9,5 +9,6 @@
         IEnumerable<Track> GetTracks();
         long AddTrack(Track track);
         void DeleteTrack(int trackId);
+        void Update(Track track);
     }
 }

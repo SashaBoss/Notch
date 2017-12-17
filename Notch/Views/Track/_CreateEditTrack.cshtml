@@ -1,21 +1,20 @@
-﻿<div class="panel-body">
-    <div id="createForm" class="collapse">
-        @using (Html.BeginForm("AddTrack", "Track", FormMethod.Post))
-        {
-            <div class="form-group">
-                <label for="Name">Name</label>
-                <input id="Name" type="text" name="Name" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label for="Length">Length</label>
-                <input id="Length" type="number" name="Length" class="form-control" />
-            </div>
-            <div class="form-group">
-                <label for="BPM">BPM</label>
-                <input id="BPM" type="number" name="BPM" class="form-control" />
-            </div>
-            <button type="submit" class="btn btn-primary">Add</button>
-            <button type="button" class="btn btn-primary btn-cancel">Cancel</button>
-        }
-    </div>
+﻿<div id="createEditForm" class="collapse">
+    @using (Html.BeginForm("AddOrUpdate", "Track", FormMethod.Post))
+    {
+        @Html.Hidden("Id", 0)
+        <div class="form-group">
+            <label for="Name">Name</label>
+            <input id="Name" type="text" name="Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="Length">Length</label>
+            <input id="Length" type="number" name="Length" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="BPM">BPM</label>
+            <input id="BPM" type="number" name="BPM" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-primary btn-cancel">Cancel</button>
+    }
 </div>
