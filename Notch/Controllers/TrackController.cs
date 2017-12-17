@@ -1,6 +1,4 @@
-﻿using Notch.ViewModels;
-
-namespace Notch.Controllers
+﻿namespace Notch.Controllers
 {
     using System.Web.Mvc;
     using Notch.Domain;
@@ -22,16 +20,19 @@ namespace Notch.Controllers
         {
             using (var trackDm = this.Factory.GetService<ITrackDM>(this.RequestContext))
             {
-                if (track.Id != 0)
+                if (ModelState.IsValid)
                 {
-                    trackDm.Update(track);
+                    if (track.Id != 0)
+                    {
+                        trackDm.Update(track);
 
-                    return RedirectToAction("Index");
+                        return RedirectToAction("Index");
+                    }
+
+                    trackDm.AddTrack(track);
                 }
 
-                trackDm.AddTrack(track);
-
-                return RedirectToAction("Index");
+                return PartialView("_CreateEditTrack", track);
             }
         }
 

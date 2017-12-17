@@ -1,4 +1,5 @@
-﻿@model System.Collections.Generic.IEnumerable<Notch.Domain.Track>
+﻿@using Notch.Domain
+@model System.Collections.Generic.IEnumerable<Notch.Domain.Track>
 
 @{
     ViewBag.Title = "Tracks";
@@ -16,7 +17,7 @@
                     <button class="btn btn-primary pull-right create-track-btn" data-toggle="collapse" data-target="#createEditForm">Add Track</button>
                 </div>
             </div>
-            @{ Html.RenderPartial("_CreateEditTrack");}
+            @{ Html.RenderPartial("_CreateEditTrack", new Track());}
         </div>
         <table class="table table-bordered table-striped table-responsive text-center">
             <thead>

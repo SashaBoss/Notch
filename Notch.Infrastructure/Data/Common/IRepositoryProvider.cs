@@ -1,5 +1,4 @@
-﻿using System;
-namespace Notch.Infrastructure.Data
+﻿namespace Notch.Infrastructure.Data
 {
     using System;
 

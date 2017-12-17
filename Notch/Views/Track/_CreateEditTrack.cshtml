@@ -1,10 +1,13 @@
-﻿<div id="createEditForm" class="collapse">
+﻿@model Notch.Domain.Track
+
+<div id="createEditForm" class="collapse">
     @using (Html.BeginForm("AddOrUpdate", "Track", FormMethod.Post))
     {
         @Html.Hidden("Id", 0)
         <div class="form-group">
             <label for="Name">Name</label>
-            <input id="Name" type="text" name="Name" class="form-control" />
+            <input id="Name" type="text" name="Name" class="form-control" required/>
+            @Html.ValidationMessageFor(m => m.Name)
         </div>
         <div class="form-group">
             <label for="Length">Length</label>

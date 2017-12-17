@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notch.Data.Dapper.Entity", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notch.Data.EntityFramework.Entity", "Notch.Data.EntityFramework.Entity\Notch.Data.EntityFramework.Entity.csproj", "{441E96C5-E835-4F61-A6C2-8A596E91C2C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notch.Tests", "Notch.Tests\Notch.Tests.csproj", "{427E1F22-D26C-4048-89F1-8D2DAE9C276A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,10 @@ Global
 		{441E96C5-E835-4F61-A6C2-8A596E91C2C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{441E96C5-E835-4F61-A6C2-8A596E91C2C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{441E96C5-E835-4F61-A6C2-8A596E91C2C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{427E1F22-D26C-4048-89F1-8D2DAE9C276A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{427E1F22-D26C-4048-89F1-8D2DAE9C276A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{427E1F22-D26C-4048-89F1-8D2DAE9C276A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{427E1F22-D26C-4048-89F1-8D2DAE9C276A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

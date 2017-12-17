@@ -3,7 +3,6 @@ using Dapper;
 
 namespace Notch.Data.Dapper
 {
-    using Dapper;
     using System;
     using System.Data;
     using System.Reflection;

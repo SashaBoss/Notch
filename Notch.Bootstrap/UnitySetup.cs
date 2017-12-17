@@ -3,7 +3,6 @@
 namespace Notch.Bootstrap
 {
     using System;
-    using Microsoft.Practices.Unity;
     using Notch.Infrastructure;
     using Notch.Infrastructure.Request;
 
