@@ -13,6 +13,16 @@
         {
         }
 
+        public Track GetTrack(int trackId)
+        {
+            using (var repo = this.Factory.GetService<ITrackRepository>(this.DataContext))
+            {
+                var track = repo.Get(trackId);
+
+                return this.EntService.ConvertTo(track, default(Track));
+            }
+        }
+
         public IEnumerable<Track> GetTracks()
         {
             using (var repo = this.Factory.GetService<ITrackRepository>(this.DataContext))

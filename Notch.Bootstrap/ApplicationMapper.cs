@@ -1,6 +1,8 @@
 ﻿namespace Notch.Bootstrap
 {
     using AutoMapper;
+    using Notch.Data.Dapper.Entity;
+    using Notch.Domain;
 
     /// <summary>
     /// Application mappings.
@@ -11,6 +13,8 @@
         {
             Mapper.Initialize((mapper) =>
             {
+                mapper.CreateMap<TrackEM, Track>()
+                      .ReverseMap();
             });
         }
     }

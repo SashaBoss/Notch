@@ -12,8 +12,9 @@
             {
                 return Mapper.Map<TOut>(value);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                var mapError = ex.Message;
                 return defaultValue;
             }
         }

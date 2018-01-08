@@ -6,7 +6,6 @@ namespace Notch.Data.EntityFramework
 {
     public interface IEFRepository<T> where T : class
     {
-
         IQueryable<T> GetAll();
         IQueryable<T> FindBy(Expression<Func<T, bool>> predicate);
         void Add(T entity);
