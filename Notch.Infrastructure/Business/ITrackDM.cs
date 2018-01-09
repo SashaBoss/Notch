@@ -10,6 +10,13 @@
     public interface ITrackDM : IDisposable
     {
         /// <summary>
+        /// Returns track by id.
+        /// </summary>
+        /// <param name="trackId"></param>
+        /// <returns></returns>
+        Track GetTrack(int trackId);
+
+        /// <summary>
         /// Returns all tracks.
         /// </summary>
         /// <returns>All tracks in system.</returns>
