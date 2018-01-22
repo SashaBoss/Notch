@@ -27,11 +27,13 @@
         private static void RegisterBusinessModels()
         {
             _container.RegisterType<ITrackDM, TrackDM>();
+            _container.RegisterType<IProductDM, ProductDM>();
         }
 
         private static void RegisterDataModels()
         {
             _container.RegisterType<ITrackRepository, TrackRepository>();
+            _container.RegisterType<IProductRepository, ProductRepository>();
         }
     }
 }

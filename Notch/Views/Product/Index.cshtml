@@ -1,0 +1,37 @@
+﻿@model IList<Notch.Domain.Product>
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Products</h2>
+
+<div class="row">
+    <select data-bind="options: AvailableProducts, 
+                       optionsText: function(item) { return item.Name; },
+                       value: SelectedRule,
+                       optionsCaption: 'Choose Product'">
+    </select>
+</div>
+
+<table class="table table-bordered table-striped table-responsive text-center">
+    <thead>
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Discount</td>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: Products">
+        
+    </tbody>
+</table>
+
+<script src="~/Scripts/product.js"></script>
+<script>
+    $(document).ready(function() {
+        Product.Initialize()
+    });
+</script>
