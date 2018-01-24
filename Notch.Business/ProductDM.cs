@@ -1,4 +1,6 @@
-﻿namespace Notch.Business
+﻿using Notch.Infrastructure.Data;
+
+namespace Notch.Business
 {
     using System.Collections.Generic;
     using Notch.Domain;
@@ -14,7 +16,7 @@
 
         public IList<Product> GetAll()
         {
-            using (var repo = Factory.GetService<IProductDM>(DataContext))
+            using (var repo = Factory.GetService<IProductRepository>(DataContext))
             {
                 var productsEm = repo.GetAll();
 

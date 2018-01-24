@@ -1,0 +1,12 @@
+@import "variables";
+@import "mixins/prefix";
+@import "mixins/bem";
+@import "mixins/breakpoint";
+
+.test {
+    color: $notch-main-color;
+
+    @include tablet(){
+        color: red;
+    }
+}

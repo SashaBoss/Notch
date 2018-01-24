@@ -7,12 +7,32 @@
 
 <h2>Products</h2>
 
-<div class="row">
-    <select data-bind="options: AvailableProducts, 
+<div class="form-inline">
+    <div class="form-group">
+        <label>Available products:</label>
+        <select class="form-control" data-bind="options: AvailableProducts,
                        optionsText: function(item) { return item.Name; },
-                       value: SelectedRule,
-                       optionsCaption: 'Choose Product'">
-    </select>
+                       value: SelectedProduct,
+                       optionsCaption: 'Choose Product'"></select>
+    </div>
+    <button type="button" class="btn btn-default" data-bind="">Add Product</button>
+</div>
+
+<div class="panel panel-success" data-bind="if: SelectedProduct()">
+    <div class="panel-title">
+        You are going to add <span data-bind="text: SelectedProduct().Name"></span>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label>Prodcut price</label>
+            <p class="form-control" data-bind="text: SelectedProduct().Price"></p>
+        </div>
+        <div class="form-group">
+            <label>Discount Amount</label>
+            <input class="form-control" data-bind="value: SelectedProduct().Discount"/>
+        </div>
+        <p data-bind="text: SelectedProduct().TotalPrice"></p>
+    </div>
 </div>
 
 <table class="table table-bordered table-striped table-responsive text-center">
@@ -24,14 +44,14 @@
             <td>Discount</td>
         </tr>
     </thead>
-    <tbody data-bind="foreach: Products">
+    <tbody>
         
     </tbody>
 </table>
-
+<script src="~/Scripts/knockout-3.4.2.js"></script>
 <script src="~/Scripts/product.js"></script>
 <script>
     $(document).ready(function() {
-        Product.Initialize()
+        Product.Initialize(@Html.Raw(Json.Encode(Model)));
     });
 </script>

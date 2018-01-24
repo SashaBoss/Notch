@@ -1,10 +1,9 @@
-﻿using Notch.Infrastructure.Data.Common;
-
-namespace Notch.Infrastructure.Data
+﻿namespace Notch.Infrastructure.Data
 {
     using Notch.Data.Dapper.Entity;
+    using Notch.Infrastructure.Data.Common;
 
-    public interface IProductRepository
+    public interface IProductRepository : IRepository<ProductEM, int>
     {
     }
 }

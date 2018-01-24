@@ -1,0 +1,6 @@
+﻿.test {
+  color: #0094ff; }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .test {
+      color: red; } }
+
