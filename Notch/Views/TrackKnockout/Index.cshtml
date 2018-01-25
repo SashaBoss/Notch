@@ -1,0 +1,77 @@
+﻿@using Notch.Domain
+@model System.Collections.Generic.IEnumerable<Notch.Domain.Track>
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>All tracks</h4>
+                </div>
+                <div class="col-md-1 col-md-offset-5">
+                    <button class="btn btn-primary pull-right create-track-btn" data-toggle="collapse" data-target="#createEditForm">Add Track</button>
+                </div>
+            </div>
+            @{ Html.RenderPartial("_CreateEditTrack", new Track());}
+        </div>
+        <table class="table table-bordered table-striped table-responsive text-center">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Length</td>
+                    <td>BPM</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: tracks">
+                <tr>
+                    <td class="col-md-2" data-bind="text: Id"></td>
+                    <td class="col-md-2" data-bind="text: Name"></td>
+                    <td class="col-md-2" data-bind="text: Length"></td>
+                    <td class="col-md-2" data-bind="text: BPM"></td>
+                    <td class="col-md-4">
+                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteTrackModal">Delete</button>
+                        <button class="btn btn-info btn-sm btn-edit-track" data-toggle="collapse" data-target="#editForm">
+                            Edit
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div id="deleteTrackModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete Track</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete <span data-bind="text: Name"></span>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" data-bind="deleteTrack">Delete</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="~/Scripts/knockout-3.4.2.js"></script>
+<script src="~/Scripts/track-knockout.js"></script>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            TrackKO.init(@Html.Raw(Json.Encode(Model)));
+        });
+    </script>
+}

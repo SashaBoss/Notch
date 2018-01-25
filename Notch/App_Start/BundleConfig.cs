@@ -2,27 +2,17 @@
 {
     using System.Web.Optimization;
 
+    using Notch.App_Bundles;
+
     public class BundleConfig
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            RegisterBootstrap(bundles);
-            RegisterAppStyles(bundles);
+            ScriptBundles.Register(bundles);
+            StyleBundles.Register(bundles);
+            BundleTable.EnableOptimizations = false;
         }
-
-        private static void RegisterAppStyles(BundleCollection bundles)
-        {
-            bundles.Add(new StyleBundle("~/Content/app")
-                .Include("~/Content/app.css"));
-        }
-
-        private static void RegisterBootstrap(BundleCollection bundles)
-        {
-            bundles.Add(new ScriptBundle("~/Scripts/bootstrap")
                 .Include("~/Scripts/bootstrap.js"));
-
-            bundles.Add(new StyleBundle("~/Content/bootstrap")
-                .Include("~/Content/bootsrap.css"));
         }
     }
 }

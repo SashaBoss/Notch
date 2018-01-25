@@ -30,6 +30,8 @@
                     }
 
                     trackDm.AddTrack(track);
+
+                    return RedirectToAction("Index");
                 }
 
                 return PartialView("_CreateEditTrack", track);

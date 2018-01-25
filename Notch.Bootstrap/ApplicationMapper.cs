@@ -15,6 +15,9 @@
             {
                 mapper.CreateMap<TrackEM, Track>()
                       .ReverseMap();
+
+                mapper.CreateMap<ProducerEM, Product>()
+                      .ReverseMap();
             });
         }
     }

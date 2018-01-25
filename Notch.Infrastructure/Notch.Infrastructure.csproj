@@ -51,12 +51,14 @@
     <Compile Include="Attributes\SqlParamMappingAttribute.cs" />
     <Compile Include="Business\BusinessContextBase.cs" />
     <Compile Include="Business\IBusinessContext.cs" />
+    <Compile Include="Business\IProductDM.cs" />
     <Compile Include="Business\ITrackDM.cs" />
     <Compile Include="Data\Common\DataContextBase.cs" />
     <Compile Include="Data\Common\IDataContext.cs" />
     <Compile Include="Data\Common\IRepository.cs" />
     <Compile Include="Data\Common\IRepositoryProvider.cs" />
     <Compile Include="Data\Common\RepostioryBase.cs" />
+    <Compile Include="Data\IProductRepository.cs" />
     <Compile Include="Data\ITrackRepository.cs" />
     <Compile Include="Dictionaries\SqlSearchType.cs" />
     <Compile Include="Exceptions\CustomException.cs" />
