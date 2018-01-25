@@ -7,51 +7,120 @@
 
 <h2>Products</h2>
 
-<div class="form-inline">
-    <div class="form-group">
-        <label>Available products:</label>
-        <select class="form-control" data-bind="options: AvailableProducts,
-                       optionsText: function(item) { return item.Name; },
-                       value: SelectedProduct,
-                       optionsCaption: 'Choose Product'"></select>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-title">
+                    <h4 class="text-center">Making an order</h4>
+                </div>
+                <div class="panel-body">
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <label>Available products:</label>
+                            <select class="form-control" data-bind="options: AvailableProducts,
+                                                                    optionsText: function(item) { return item.Name; },
+                                                                    value: SelectedProduct,
+                                                                    optionsCaption: 'Choose Product'"></select>
+                        </div>
+                    </div>
+                    <div class="panel panel-success" data-bind="if: SelectedProduct()">
+                        <div class="panel-title">
+                            <h4>You are going to add</h4>
+                            <span data-bind="text: SelectedProduct().Name"></span>
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group">
+                                <label>Prodcut price</label>
+                                <p class="form-control" data-bind="text: SelectedProduct().Price"></p>
+                            </div>
+                            <div class="form-group">
+                                <label>Discount Percent</label>
+                                <input class="form-control" data-bind="value: SelectedProduct().Discount" maxlength="2"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Price with discount</label>
+                                <input class="form-control" data-bind="value: SelectedProduct().DiscountPrice" readonly/>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-bind="click: AddToOrder">Add Product</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-default" data-bind="visible: Order().Products().length > 0">
+                <div class="panel-title">
+                    <h4 class="text-center">Order</h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped table-responsive text-center">
+                        <thead>
+                        <tr>
+                            <td>Product Name</td>
+                            <td>Product Price</td>
+                            <td>Actions</td>
+                        </tr>
+                        </thead>
+                        <tbody data-bind="foreach: Order().Products">
+                        <tr>
+                            <td data-bind="text: Name"></td>
+                            <td data-bind="text: DiscountPrice()"></td>
+                            <td>
+                                <button class="btn btn-danger" data-bind="click: $root.RemoveProduct">Remove</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="order-summary">
+                        <h4>Order total:</h4><span data-bind="text: Order().OrderTotal"></span>
+                        <h4>Product Count:</h4><span data-bind="text: Order().ProductsCount"></span>
+                    </div>
+                    <button class="btn btn-primary">Create order</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <button type="button" class="btn btn-default" data-bind="">Add Product</button>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default" data-bind="visible: Order().Products().length > 0">
+                <div class="panel-title">
+                    <h4 class="text-center">Orders for Shipping</h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped table-responsive text-center">
+                        <thead>
+                            <tr>
+                                <td>Order Number</td>
+                                <td>Products</td>
+                                <td>Price</td>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: Shipping().Orders">
+                            <tr>
+                                <td data-bind="text: OrderNumber"></td>
+                                <td data-bind="foreach: "></td>
+                                <td>
+                                    <button class="btn btn-danger" data-bind="click: $root.RemoveProduct">Remove</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="order-summary">
+                        <h4>Order total:</h4><span data-bind="text: Order().OrderTotal"></span>
+                        <h4>Product Count:</h4><span data-bind="text: Order().ProductsCount"></span>
+                    </div>
+                    <button class="btn btn-primary">Create order</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="panel panel-success" data-bind="if: SelectedProduct()">
-    <div class="panel-title">
-        You are going to add <span data-bind="text: SelectedProduct().Name"></span>
-    </div>
-    <div class="panel-body">
-        <div class="form-group">
-            <label>Prodcut price</label>
-            <p class="form-control" data-bind="text: SelectedProduct().Price"></p>
-        </div>
-        <div class="form-group">
-            <label>Discount Amount</label>
-            <input class="form-control" data-bind="value: SelectedProduct().Discount"/>
-        </div>
-        <p data-bind="text: SelectedProduct().TotalPrice"></p>
-    </div>
-</div>
-
-<table class="table table-bordered table-striped table-responsive text-center">
-    <thead>
-        <tr>
-            <td>Id</td>
-            <td>Name</td>
-            <td>Price</td>
-            <td>Discount</td>
-        </tr>
-    </thead>
-    <tbody>
-        
-    </tbody>
-</table>
 <script src="~/Scripts/knockout-3.4.2.js"></script>
 <script src="~/Scripts/product.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         Product.Initialize(@Html.Raw(Json.Encode(Model)));
     });
 </script>
