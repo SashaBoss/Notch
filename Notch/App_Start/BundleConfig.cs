@@ -12,7 +12,5 @@
             StyleBundles.Register(bundles);
             BundleTable.EnableOptimizations = false;
         }
-                .Include("~/Scripts/bootstrap.js"));
-        }
     }
 }

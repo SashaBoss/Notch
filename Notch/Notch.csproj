@@ -217,6 +217,9 @@
     <Compile Include="ViewModels\TrackVM.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap.css">
+      <DependentUpon>bootstrap.scss</DependentUpon>
+    </Content>
     <Content Include="Content\pages\tracks.css">
       <DependentUpon>tracks.scss</DependentUpon>
     </Content>
@@ -362,6 +365,7 @@
     <Content Include="Content\bootstrap\mixins\_background-variant.scss" />
     <Content Include="Content\bootstrap\mixins\_alerts.scss" />
     <Content Include="Content\app.scss" />
+    <Content Include="Content\bootstrap.scss" />
     <None Include="Views\Track\Index.cshtml" />
     <Content Include="Views\Track\_CreateEditTrack.cshtml" />
     <Content Include="Views\Track\_DeleteModals.cshtml" />
