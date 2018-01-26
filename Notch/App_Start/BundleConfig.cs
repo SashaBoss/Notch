@@ -1,6 +1,7 @@
 ﻿namespace Notch
 {
     using System.Web.Optimization;
+
     using Notch.App_Bundles;
 
     public class BundleConfig

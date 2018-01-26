@@ -13,7 +13,7 @@
         private static void Bootstrap(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/Content/bootstrap").Include(
-                    "~/Content/plugins/bootstrap.css"));
+                    "~/Content/bootstrap.css"));
         }
 
         private static void MainBundle(BundleCollection bundles)
