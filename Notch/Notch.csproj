@@ -254,6 +254,11 @@
     <Content Include="Scripts\bootstrap\tab.js" />
     <Content Include="Scripts\bootstrap\tooltip.js" />
     <Content Include="Scripts\bootstrap\transition.js" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\knockout-3.4.2.debug.js" />
     <Content Include="Scripts\knockout-3.4.2.js" />
     <Content Include="Scripts\product.js" />
@@ -366,6 +371,8 @@
     <Content Include="Content\bootstrap\mixins\_alerts.scss" />
     <Content Include="Content\app.scss" />
     <Content Include="Content\bootstrap.scss" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
     <None Include="Views\Track\Index.cshtml" />
     <Content Include="Views\Track\_CreateEditTrack.cshtml" />
     <Content Include="Views\Track\_DeleteModals.cshtml" />
