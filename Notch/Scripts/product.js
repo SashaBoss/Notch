@@ -19,12 +19,17 @@ function ProductVM(products) {
     self.AvailableProducts = products;
     self.SelectedProduct = ko.observable({});
     self.Order = ko.observable(new Order());
+    self.ShippedOrders = ko.observableArray();
     self.AddToOrder = function () {
         self.Order().Products.push(self.SelectedProduct());
     }
 
     self.RemoveProduct = function() {
         self.Order().Products.remove(this);
+    }
+
+    self.ShipOrder = function() {
+        self.ShippedOrders.push(this);
     }
 }
 
