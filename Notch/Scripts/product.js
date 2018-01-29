@@ -8,28 +8,26 @@
         products.forEach(function(p) {
             vmProducts.push(new Product(p.Id, p.Name, p.Price, p.Discount));
         });
-        ko.applyBindings(new ProductVM(vmProducts));
+
+        ko.applyBindings(new ShopVM(vmProducts));
     }
 
 }).apply(Product);
 
-function ProductVM(products) {
+function ShopVM(products) {
     var self = this;
 
     self.AvailableProducts = products;
     self.SelectedProduct = ko.observable({});
-    self.Order = ko.observable(new Order());
+    self.NewOrder = ko.observable(new NewOrder());
     self.ShippedOrders = ko.observableArray();
+
     self.AddToOrder = function () {
-        self.Order().Products.push(self.SelectedProduct());
+        self.NewOrder().Products.push(self.SelectedProduct());
     }
 
-    self.RemoveProduct = function() {
-        self.Order().Products.remove(this);
-    }
-
-    self.ShipOrder = function() {
-        self.ShippedOrders.push(this);
+    self.ShipOrder = function () {
+        self.ShippedOrders.push(this.NewOrder);
     }
 }
 
@@ -45,8 +43,9 @@ function Product(id, name, price, discount) {
     });
 }
 
-function Order() {
+function NewOrder() {
     var self = this;
+
     self.Products = ko.observableArray();
     self.OrderTotal = ko.computed(function() {
         var total = 0;
@@ -61,4 +60,8 @@ function Order() {
     self.ProductsCount = ko.computed(function () {
         return self.Products().length;
     });
+
+    self.RemoveProduct = function () {
+        self.Products.remove(this);
+    }
 }
